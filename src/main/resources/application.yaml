@@ -1,0 +1,22 @@
+server:
+  port: ${SERVER_PORT:8080}
+
+spring:
+  redis:
+    host: ${REDIS_HOST:localhost}
+    port: ${REDIS_PORT:6379}
+  cache:
+    type: redis
+    redis:
+      time-to-live: 600000
+  data:
+    mongodb:
+      uri: ${MONGO_DB_URI:mongodb://root:root@localhost}
+      database: ${MONGODB_DATABASE:chatDb}
+
+app:
+  auth:
+    jwks-url: https://{DOMAIN}/.well-known/jwks.json
+
+# Substituir {DOMAIN} pelo seu domain na plataforma Auth0.
+# Você encontrará em Auth0 > Applications > Aplicação XYZ > Domain
